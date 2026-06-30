@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Портфолио — ТОО «СВОЙ ПРОЕКТ» · Проектная компания, Астана</title>
+<meta name="description" content="Портфолио проектной компании ТОО «СВОЙ ПРОЕКТ» (Астана): реализованные проекты жилых, коммерческих и промышленных объектов, генеральные планы, благоустройство и наружные инженерные сети. Проектирование под ключ." />
+<meta name="theme-color" content="#11161d" />
+<link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Lora:wght@500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --blue:#2f7fd1; --blue-d:#225f9e; --ink:#11161d; --ink2:#26303c;
+  --muted:#56616f; --muted2:#7c8694; --line:#e4e9ef; --bg:#f6f8fa; --gold:#b9822f;
+  --paper:#525659;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Manrope",system-ui,sans-serif;color:var(--ink);
+  background:var(--paper);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+h1,h2,h3{font-family:"Lora","Manrope",Georgia,serif}
+a{color:inherit;text-decoration:none}
+.mono{font-family:"JetBrains Mono",monospace}
+img{display:block;max-width:100%}
+
+/* ===== Booklet sheets (A4) ===== */
+.book{padding:30px 16px 60px}
+.sheet{
+  position:relative;width:210mm;min-height:297mm;background:#fff;margin:0 auto 26px;
+  overflow:hidden;display:flex;flex-direction:column;
+  box-shadow:0 10px 40px -8px rgba(0,0,0,.45);
+}
+.pad{padding:17mm 16mm}
+.pagenum{position:absolute;bottom:8mm;right:16mm;font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.18em;color:#aeb6c0}
+.brandfoot{position:absolute;bottom:8mm;left:16mm;font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.18em;color:#aeb6c0;text-transform:uppercase}
+
+/* ===== Toolbar ===== */
+.toolbar{
+  position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:100;
+  display:flex;align-items:center;gap:10px;background:rgba(17,22,29,.92);
+  backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);
+  padding:9px 12px 9px 16px;border-radius:13px;box-shadow:0 14px 36px -12px rgba(0,0,0,.6);
+}
+.toolbar .tl{color:#cdd5df;font-size:12.5px;font-weight:600;letter-spacing:.01em;white-space:nowrap}
+.toolbar .tl b{color:#fff}
+.print-btn{
+  display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;
+  border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:13.5px;
+  padding:10px 16px;border-radius:9px;transition:background .15s,transform .15s;
+}
+.print-btn:hover{background:#3a8ee0;transform:translateY(-1px)}
+
+/* ===== Typography helpers ===== */
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);font-weight:600}
+.h-sec{font-size:30px;font-weight:700;letter-spacing:-.02em;color:var(--ink);line-height:1.12}
+.lead{font-size:14px;line-height:1.62;color:var(--muted)}
+.rule{height:3px;width:48px;background:var(--blue);border-radius:3px}
+
+/* ===== Cover ===== */
+.cover{background:#0e151d;color:#fff;justify-content:space-between}
+.cover-img{position:absolute;inset:0;background:#0e151d center/cover no-repeat}
+.cover-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,21,.62) 0%,rgba(10,15,21,.42) 38%,rgba(10,15,21,.82) 100%)}
+.cover-in{position:relative;display:flex;flex-direction:column;justify-content:space-between;flex:1;padding:18mm 16mm}
+.cover-top{display:flex;align-items:center;gap:13px}
+.cover-top img{height:62px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.4))}
+.cover-badge{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(6px);padding:8px 15px;border-radius:30px;font-size:12px;font-weight:600;color:#dbe3ec}
+.cover h1{font-size:74px;line-height:.98;letter-spacing:-.01em;font-weight:600;color:#fff;margin:14px 0 0}
+.cover .sub{font-size:18px;line-height:1.5;color:#c4cdd8;max-width:430px;margin-top:18px;font-weight:500}
+.cover-meta{display:flex;gap:26px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.18);padding-top:18px;margin-top:6px}
+.cover-meta .m .k{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.16em;color:#8ea2bb;text-transform:uppercase}
+.cover-meta .m .v{font-size:14px;font-weight:700;color:#fff;margin-top:4px}
+
+/* ===== Stats ===== */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:22px 0 26px}
+.stats .st{padding:20px 18px;border-right:1px solid var(--line)}
+.stats .st:last-child{border-right:none}
+.stats .num{font-size:38px;font-weight:800;letter-spacing:-.03em;color:var(--ink);font-family:"Manrope",sans-serif}
+.stats .num span{color:var(--blue)}
+.stats .lbl{font-size:12.5px;color:var(--muted2);margin-top:2px;font-weight:600}
+
+.trust{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:8px}
+.tcard{border:1px solid var(--line);border-radius:12px;padding:15px 16px;background:#fcfdfe}
+.tcard .c{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--blue);font-weight:600}
+.tcard .t{font-size:14.5px;font-weight:700;color:var(--ink2);margin:7px 0 4px}
+.tcard .d{font-size:12px;line-height:1.5;color:var(--muted2)}
+
+/* object grid */
+.objgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}
+.obj{position:relative;border-radius:11px;overflow:hidden;aspect-ratio:1/1.05;background:#1e252e}
+.obj .bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.obj .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,21,29,.05) 35%,rgba(14,21,29,.85) 100%)}
+.obj .lab{position:absolute;left:0;right:0;bottom:0;padding:11px 12px;font-size:13px;font-weight:700;color:#fff;line-height:1.2}
+
+/* services list */
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:9px 26px;margin-top:4px}
+.svc .it{display:flex;gap:11px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)}
+.svc .ic{flex:none;width:24px;height:24px;border-radius:7px;background:#eef4fb;color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px}
+.svc .tx .t{font-size:14px;font-weight:700;color:var(--ink2)}
+.svc .tx .d{font-size:11.5px;color:var(--muted2);margin-top:2px;line-height:1.4}
+
+/* process */
+.proc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:4px}
+.step{display:flex;gap:14px;align-items:flex-start}
+.step .n{flex:none;width:38px;height:38px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace;font-weight:600;font-size:15px}
+.step .t{font-size:14.5px;font-weight:700;color:var(--ink2);line-height:1.25}
+.step .d{font-size:12px;color:var(--muted2);margin-top:3px;line-height:1.45}
+
+/* portfolio cards */
+.pf{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.card{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff;display:flex;flex-direction:column;break-inside:avoid}
+.card .ph{position:relative;aspect-ratio:16/10;background:#1e252e center/cover no-repeat}
+.card .tag{position:absolute;top:10px;left:10px;background:rgba(255,255,255,.94);color:#16202c;font-size:10.5px;font-weight:700;padding:4px 9px;border-radius:20px;letter-spacing:.01em}
+.card .bd{padding:13px 14px 15px}
+.card .nm{font-size:15px;font-weight:700;color:var(--ink);line-height:1.25;font-family:"Manrope",sans-serif}
+.card .loc{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--blue-d);font-weight:600;margin-top:5px}
+.card .ds{font-size:11.5px;line-height:1.5;color:var(--muted2);margin-top:8px}
+
+/* feature genplan */
+.feat-hero{border-radius:14px;overflow:hidden;border:1px solid var(--line);margin-top:14px}
+.feat-hero img{width:100%;height:auto}
+.feat-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.feat-row figure{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fbfcfd}
+.feat-row img{width:100%;height:150px;object-fit:cover;object-position:center}
+.feat-row figcaption{font-size:11px;color:var(--muted2);padding:8px 11px;font-weight:600}
+.taglist{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.taglist span{font-size:11.5px;font-weight:600;color:var(--ink2);background:#eef4fb;border:1px solid #d8e6f5;padding:6px 12px;border-radius:20px}
+
+/* licenses */
+.licgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:8px}
+.lic{border:1px solid var(--line);border-radius:11px;overflow:hidden;background:#fbfcfd}
+.lic img{width:100%;height:215px;object-fit:cover;object-position:top}
+.lic .cap{padding:11px 13px}
+.lic .cap .tg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.12em;color:var(--blue);font-weight:600}
+.lic .cap .t{font-size:13px;font-weight:700;color:var(--ink2);margin-top:5px;line-height:1.25}
+.lic .cap .n{font-size:11px;color:var(--muted2);margin-top:3px}
+
+/* contact / back cover */
+.back{background:#0e151d;color:#fff;justify-content:space-between}
+.back .pad{display:flex;flex-direction:column;justify-content:space-between;flex:1}
+.back h2{font-size:46px;font-weight:600;line-height:1.04;color:#fff}
+.back .lead2{font-size:15px;line-height:1.62;color:#aab4c1;max-width:430px;margin-top:16px}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+.cbox{border:1px solid rgba(255,255,255,.14);border-radius:13px;padding:17px 18px;background:rgba(255,255,255,.03)}
+.cbox .k{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.16em;color:#8ea2bb;text-transform:uppercase}
+.cbox .v{font-size:17px;font-weight:700;color:#fff;margin-top:7px;word-break:break-word}
+.cbox .v.sm{font-size:14px;font-weight:600}
+.wa{display:inline-flex;align-items:center;gap:9px;background:#25d366;color:#fff;padding:14px 22px;border-radius:11px;font-size:15px;font-weight:700;align-self:flex-start;margin-top:24px}
+.back-top{display:flex;align-items:center;gap:13px}
+.back-top img{height:54px}
+.back-top .nm{font-weight:800;font-size:17px;letter-spacing:.02em}
+.back-top .sb{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.2em;color:#caa46a;text-transform:uppercase;margin-top:3px}
+.signoff{font-size:11.5px;color:#6f7c8c;border-top:1px solid rgba(255,255,255,.12);padding-top:16px;margin-top:8px;line-height:1.6}
+
+/* ===== Print ===== */
+@page{size:A4;margin:0}
+@media print{
+  body{background:#fff}
+  .book{padding:0}
+  .toolbar{display:none !important}
+  .sheet{margin:0;box-shadow:none;page-break-after:always;break-after:page;min-height:296mm}
+  .sheet:last-child{page-break-after:auto}
+}
+
+/* ===== Small screens (preview comfort) ===== */
+@media (max-width:760px){
+  .book{padding:14px 0 40px}
+  .sheet{width:100%;min-height:auto;margin-bottom:12px}
+  .pad{padding:30px 22px 48px}
+  .cover h1{font-size:48px}
+  .back h2{font-size:34px}
+  .objgrid{grid-template-columns:repeat(2,1fr)}
+  .pf,.proc,.svc,.trust,.cgrid,.feat-row{grid-template-columns:1fr}
+  .licgrid{grid-template-columns:1fr 1fr}
+  .stats .num{font-size:30px}
+  .pagenum,.brandfoot{position:static;display:block;margin-top:18px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="tl"><b>Портфолио</b> · ТОО «СВОЙ ПРОЕКТ»</span>
+  <button class="print-btn" onclick="window.print()">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    Печать / Скачать буклет
+  </button>
+</div>
+
+<div class="book">
+
+  <!-- ============ COVER ============ -->
+  <section class="sheet cover">
+    <div class="cover-img" style="background-image:url('./assets/projects/jk-lake.jpg')"></div>
+    <div class="cover-ov"></div>
+    <div class="cover-in">
+      <div>
+        <div class="cover-top">
+          <img src="./assets/logo.png" alt="СВОЙ ПРОЕКТ" />
+          <div>
+            <div style="font-weight:800;font-size:18px;letter-spacing:.03em">ТОО «СВОЙ ПРОЕКТ»</div>
+            <div class="mono" style="font-size:9px;letter-spacing:.22em;color:#caa46a;text-transform:uppercase;margin-top:4px">Проектная компания · Астана</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="cover-badge"><span style="color:#5aa6e8">●</span> Проектирование под ключ — от эскиза до согласования</div>
+        <h1>Портфолио</h1>
+        <p class="sub">Проектирование жилых, коммерческих и&nbsp;промышленных объектов, генеральные планы и&nbsp;наружные инженерные сети.</p>
+      </div>
+      <div class="cover-meta">
+        <div class="m"><div class="k">Город</div><div class="v">Астана, Казахстан</div></div>
+        <div class="m"><div class="k">Лицензия</div><div class="v">I категория · бессрочно</div></div>
+        <div class="m"><div class="k">Опыт</div><div class="v">более 15 лет</div></div>
+        <div class="m"><div class="k">Издание</div><div class="v">2026</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="sheet">
+    <div class="pad">
+      <div class="eyebrow">О компании</div>
+      <h2 class="h-sec" style="margin:10px 0 14px">Проектное бюро полного цикла</h2>
+      <div class="rule"></div>
+      <p class="lead" style="margin-top:16px">ТОО «СВОЙ ПРОЕКТ» разрабатывает эскизные и&nbsp;рабочие проекты, наружные инженерные сети и&nbsp;сопровождает прохождение экспертизы и&nbsp;согласований. Мы закрываем весь путь объекта — от&nbsp;первой идеи до&nbsp;готового комплекта документации.</p>
+      <p class="lead" style="margin-top:11px">Работаем с&nbsp;жилыми, коммерческими и&nbsp;промышленными объектами. Проектируем по&nbsp;действующим нормам и&nbsp;требованиям, отвечаем за&nbsp;качество и&nbsp;сроки и&nbsp;ведём понятную коммуникацию на&nbsp;каждом этапе.</p>
+
+      <div class="stats">
+        <div class="st"><div class="num">15<span>+</span></div><div class="lbl">лет опыта работы</div></div>
+        <div class="st"><div class="num">20<span>+</span></div><div class="lbl">сотрудников в&nbsp;штате</div></div>
+        <div class="st"><div class="num">100<span>+</span></div><div class="lbl">выполненных объектов</div></div>
+      </div>
+
+      <div class="eyebrow" style="margin-bottom:12px">Почему выбирают нас</div>
+      <div class="trust">
+        <div class="tcard"><div class="c">01</div><div class="t">Комплексное проектирование</div><div class="d">Все разделы объекта в одном бюро — единое решение и ответственность.</div></div>
+        <div class="tcard"><div class="c">02</div><div class="t">Работа по нормам</div><div class="d">Проектируем в соответствии с действующими нормами и требованиями.</div></div>
+        <div class="tcard"><div class="c">03</div><div class="t">Опыт разных объектов</div><div class="d">Жилые, коммерческие и промышленные объекты различного масштаба.</div></div>
+        <div class="tcard"><div class="c">04</div><div class="t">Ведём до результата</div><div class="d">Сопровождаем проект до положительного заключения экспертизы.</div></div>
+        <div class="tcard"><div class="c">05</div><div class="t">Понятная коммуникация</div><div class="d">Держим заказчика в курсе на каждом этапе работы.</div></div>
+        <div class="tcard"><div class="c">06</div><div class="t">Ответственно к срокам</div><div class="d">Отвечаем за качество документации и соблюдение сроков.</div></div>
+      </div>
+    </div>
+    <div class="brandfoot">СВОЙ ПРОЕКТ</div>
+    <div class="pagenum">02</div>
+  </section>
+
+  <!-- ============ WHAT WE DESIGN + SERVICES ============ -->
+  <section class="sheet">
+    <div class="pad">
+      <div class="eyebrow">Направления</div>
+      <h2 class="h-sec" style="margin:10px 0 14px">Что мы проектируем</h2>
+      <div class="rule"></div>
+      <div class="objgrid" style="margin-top:18px">
+        <div class="obj"><div class="bg" style="background-image:url('./assets/projects/villa.jpg')"></div><div class="ov"></div><div class="lab">Частные дома</div></div>
+        <div class="obj"><div class="bg" style="background-image:url('./assets/projects/jk-day.jpg')"></div><div class="ov"></div><div class="lab">Жилые дома</div></div>
+        <div class="obj"><div class="bg" style="background-image:url('./assets/projects/jk-orchid.jpg')"></div><div class="ov"></div><div class="lab">Жилые комплексы</div></div>
+        <div class="obj"><div class="bg" style="background-image:url('./assets/projects/kazprofits-day.jpg')"></div><div class="ov"></div><div class="lab">Коммерческие объекты</div></div>
+        <div class="obj"><div class="bg" style="background-image:url('./assets/projects/prombaza.jpg')"></div><div class="ov"></div><div class="lab">Производственные базы</div></div>
+        <div class="obj"><div class="bg" style="background-image:url('./assets/projects/ceh-astana.jpg')"></div><div class="ov"></div><div class="lab">Промышленные объекты</div></div>
+        <div class="obj"><div class="bg" style="background-image:url('./assets/projects/base-baikonyr.jpg')"></div><div class="ov"></div><div class="lab">Склады и логистика</div></div>
+        <div class="obj"><div class="bg" style="background-image:url('./assets/renders/networks.jpg')"></div><div class="ov"></div><div class="lab">Инженерные сети</div></div>
+      </div>
+
+      <div class="eyebrow" style="margin:26px 0 10px">Состав работ</div>
+      <div class="svc">
+        <div class="it"><div class="ic">✓</div><div class="tx"><div class="t">Эскизные проекты</div><div class="d">Концепция, объёмно-планировочные решения, фасады.</div></div></div>
+        <div class="it"><div class="ic">✓</div><div class="tx"><div class="t">Рабочие проекты</div><div class="d">Полный комплект рабочей документации по всем разделам.</div></div></div>
+        <div class="it"><div class="ic">✓</div><div class="tx"><div class="t">Генеральный план</div><div class="d">Планировка участка, вертикальная планировка, благоустройство.</div></div></div>
+        <div class="it"><div class="ic">✓</div><div class="tx"><div class="t">Наружные инженерные сети</div><div class="d">Водоснабжение, канализация, тепло, электро, слаботочные.</div></div></div>
+        <div class="it"><div class="ic">✓</div><div class="tx"><div class="t">Конструктивные решения</div><div class="d">Расчёты и проектирование несущих конструкций.</div></div></div>
+        <div class="it"><div class="ic">✓</div><div class="tx"><div class="t">Экспертиза и согласования</div><div class="d">Сопровождение до положительного заключения.</div></div></div>
+      </div>
+    </div>
+    <div class="brandfoot">СВОЙ ПРОЕКТ</div>
+    <div class="pagenum">03</div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="sheet">
+    <div class="pad">
+      <div class="eyebrow">Процесс</div>
+      <h2 class="h-sec" style="margin:10px 0 14px">Как мы работаем</h2>
+      <div class="rule"></div>
+      <p class="lead" style="margin:16px 0 22px;max-width:520px">Прозрачный маршрут проекта — от первой заявки до готового комплекта документации и положительного заключения экспертизы.</p>
+      <div class="proc">
+        <div class="step"><div class="n">1</div><div><div class="t">Получаем заявку</div><div class="d">Уточняем задачу, тип объекта и пожелания заказчика.</div></div></div>
+        <div class="step"><div class="n">2</div><div><div class="t">Изучаем объект</div><div class="d">Анализируем участок, ограничения и исходные данные.</div></div></div>
+        <div class="step"><div class="n">3</div><div><div class="t">Техническое решение</div><div class="d">Формируем оптимальный архитектурный и инженерный вариант.</div></div></div>
+        <div class="step"><div class="n">4</div><div><div class="t">Разрабатываем проект</div><div class="d">Готовим все разделы проектной и рабочей документации.</div></div></div>
+        <div class="step"><div class="n">5</div><div><div class="t">Сопровождаем экспертизу</div><div class="d">Отрабатываем замечания государственной или частной экспертизы.</div></div></div>
+        <div class="step"><div class="n">6</div><div><div class="t">Помогаем с согласованиями</div><div class="d">Ведём проект по инстанциям и управлению архитектуры.</div></div></div>
+        <div class="step"><div class="n">7</div><div><div class="t">Передаём комплект</div><div class="d">Готовая документация и заключение — на руках у заказчика.</div></div></div>
+        <div class="step" style="align-items:center"><div class="n" style="background:var(--blue)">✦</div><div><div class="t">Под ключ</div><div class="d">От идеи до согласования в одном бюро.</div></div></div>
+      </div>
+    </div>
+    <div class="brandfoot">СВОЙ ПРОЕКТ</div>
+    <div class="pagenum">04</div>
+  </section>
+
+  <!-- ============ FEATURE: GENPLAN PROJECT (from PDFs) ============ -->
+  <section class="sheet">
+    <div class="pad">
+      <div class="eyebrow">Избранный проект</div>
+      <h2 class="h-sec" style="margin:10px 0 12px">Жилой комплекс — генплан, благоустройство и&nbsp;инженерные сети</h2>
+      <div class="rule"></div>
+      <p class="lead" style="margin-top:14px;max-width:540px">Комплексное проектирование жилого микрорайона в&nbsp;Астане: генеральный план застройки, вертикальная планировка, благоустройство и&nbsp;озеленение территории, а&nbsp;также полный комплект наружных инженерных сетей. Все разделы выполнены в&nbsp;едином бюро и&nbsp;сопровождены до&nbsp;экспертизы.</p>
+      <div class="feat-hero">
+        <img src="./assets/renders/genplan-landscape.jpg" alt="Генеральный план и благоустройство жилого комплекса" />
+      </div>
+      <div class="feat-row">
+        <figure><img src="./assets/renders/genplan-master.jpg" alt="Генеральный план застройки" /><figcaption>Генеральный план застройки и вертикальная планировка</figcaption></figure>
+        <figure><img src="./assets/renders/networks.jpg" alt="Наружные инженерные сети" /><figcaption>Сводный план наружных инженерных сетей</figcaption></figure>
+      </div>
+      <div class="taglist">
+        <span>Генеральный план</span><span>Благоустройство и озеленение</span><span>Водоснабжение и канализация</span><span>Теплоснабжение</span><span>Электроснабжение</span><span>Слаботочные системы</span>
+      </div>
+    </div>
+    <div class="brandfoot">СВОЙ ПРОЕКТ</div>
+    <div class="pagenum">05</div>
+  </section>
+
+  <!-- ============ PORTFOLIO 1 ============ -->
+  <section class="sheet">
+    <div class="pad">
+      <div class="eyebrow">Реализованные проекты</div>
+      <h2 class="h-sec" style="margin:10px 0 14px">Наши объекты <span style="color:var(--muted2);font-size:18px;font-weight:600">— жильё</span></h2>
+      <div class="rule"></div>
+      <div class="pf">
+        <div class="card"><div class="ph" style="background-image:url('./assets/projects/jk-lake.jpg')"><span class="tag">Жилой комплекс</span></div><div class="bd"><div class="nm">Жилой комплекс премиум-класса</div><div class="loc">◦ г. Астана, у воды</div><div class="ds">Многосекционный комплекс бизнес- и премиум-класса на набережной. Эскизный и рабочий проект, фасадные решения, благоустройство территории.</div></div></div>
+        <div class="card"><div class="ph" style="background-image:url('./assets/projects/jk-orchid.jpg')"><span class="tag">Жилой комплекс</span></div><div class="bd"><div class="nm">ЖК «Orchid» — высотные башни</div><div class="loc">◦ г. Астана</div><div class="ds">Комплекс высотных жилых башен с развитой коммерческой инфраструктурой на первых этажах и подземным паркингом.</div></div></div>
+        <div class="card"><div class="ph" style="background-image:url('./assets/projects/jk-satns.jpg')"><span class="tag">Жилой комплекс</span></div><div class="bd"><div class="nm">Жилой комплекс «Park City»</div><div class="loc">◦ набережная</div><div class="ds">Жилой квартал на набережной с благоустроенными дворами без машин и видовыми квартирами.</div></div></div>
+        <div class="card"><div class="ph" style="background-image:url('./assets/projects/jk-sunset.jpg')"><span class="tag">Жилой квартал</span></div><div class="bd"><div class="nm">Многофункциональный жилой квартал</div><div class="loc">◦ г. Астана</div><div class="ds">Квартал с жильём, коммерческими помещениями и социальными объектами в единой архитектурной концепции.</div></div></div>
+      </div>
+    </div>
+    <div class="brandfoot">СВОЙ ПРОЕКТ</div>
+    <div class="pagenum">06</div>
+  </section>
+
+  <!-- ============ PORTFOLIO 2 ============ -->
+  <section class="sheet">
+    <div class="pad">
+      <div class="eyebrow">Реализованные проекты</div>
+      <h2 class="h-sec" style="margin:10px 0 14px">Наши объекты <span style="color:var(--muted2);font-size:18px;font-weight:600">— жильё и коммерция</span></h2>
+      <div class="rule"></div>
+      <div class="pf">
+        <div class="card"><div class="ph" style="background-image:url('./assets/projects/villa.jpg')"><span class="tag">Малоэтажная застройка</span></div><div class="bd"><div class="nm">Комплекс малоэтажных жилых домов</div><div class="loc">◦ г. Астана, р-н Есиль</div><div class="ds">Квартал комфортной малоэтажной застройки с собственной инфраструктурой и благоустройством.</div></div></div>
+        <div class="card"><div class="ph" style="background-image:url('./assets/projects/kazprofits-day.jpg')"><span class="tag">Административное здание</span></div><div class="bd"><div class="nm">Бизнес-центр «KazProfits»</div><div class="loc">◦ KazProfits, г. Астана</div><div class="ds">Современное административно-офисное здание класса А. Архитектурная концепция, рабочая документация, инженерные системы.</div></div></div>
+        <div class="card"><div class="ph" style="background-image:url('./assets/projects/servicehub.jpg')"><span class="tag">Придорожный сервис</span></div><div class="bd"><div class="nm">Сервисный ХАБ</div><div class="loc">◦ Cafe · Restaurant · Market</div><div class="ds">Придорожный сервисный комплекс с кафе, рестораном и торговой зоной. Полный цикл проектирования.</div></div></div>
+        <div class="card"><div class="ph" style="background-image:url('./assets/projects/carcity.jpg')"><span class="tag">Автоцентр</span></div><div class="bd"><div class="nm">Автоцентр «CAR CITY»</div><div class="loc">◦ CAR CITY</div><div class="ds">Автомобильный центр с шоурумом, сервисной зоной и клиентской инфраструктурой.</div></div></div>
+      </div>
+    </div>
+    <div class="brandfoot">СВОЙ ПРОЕКТ</div>
+    <div class="pagenum">07</div>
+  </section>
+
+  <!-- ============ PORTFOLIO 3 ============ -->
+  <section class="sheet">
+    <div class="pad">
+      <div class="eyebrow">Реализованные проекты</div>
+      <h2 class="h-sec" style="margin:10px 0 14px">Наши объекты <span style="color:var(--muted2);font-size:18px;font-weight:600">— промышленность и сети</span></h2>
+      <div class="rule"></div>
+      <div class="pf">
+        <div class="card"><div class="ph" style="background-image:url('./assets/projects/base-baikonyr.jpg')"><span class="tag">Производственная база</span></div><div class="bd"><div class="nm">Производственная база (ул. С-352)</div><div class="loc">◦ г. Астана, р-н Байконыр</div><div class="ds">Производственно-складская база с административно-бытовым корпусом. Генплан, конструктив, инженерные сети.</div></div></div>
+        <div class="card"><div class="ph" style="background-image:url('./assets/projects/prombaza.jpg')"><span class="tag">Производственная база</span></div><div class="bd"><div class="nm">Кирпичный завод</div><div class="loc">◦ промзона</div><div class="ds">Производственная база по выпуску строительного кирпича: производственные и складские корпуса, инженерные сети.</div></div></div>
+        <div class="card"><div class="ph" style="background-image:url('./assets/projects/ceh-astana.jpg')"><span class="tag">Промышленный объект</span></div><div class="bd"><div class="nm">Производственный цех</div><div class="loc">◦ г. Астана</div><div class="ds">Промышленный цех с административно-бытовым блоком. Технологическое и строительное проектирование.</div></div></div>
+        <div class="card"><div class="ph" style="background-image:url('./assets/projects/seti-es.jpg')"><span class="tag">Наружные сети</span></div><div class="bd"><div class="nm">Наружные сети электроснабжения</div><div class="loc">◦ Электроснабжение, участок 26</div><div class="ds">Проект наружных сетей электроснабжения: кабельные линии, ТП, расчёт нагрузок и согласование.</div></div></div>
+      </div>
+    </div>
+    <div class="brandfoot">СВОЙ ПРОЕКТ</div>
+    <div class="pagenum">08</div>
+  </section>
+
+  <!-- ============ LICENSES ============ -->
+  <section class="sheet">
+    <div class="pad">
+      <div class="eyebrow">Документы</div>
+      <h2 class="h-sec" style="margin:10px 0 14px">Лицензии и допуски</h2>
+      <div class="rule"></div>
+      <p class="lead" style="margin:14px 0 6px;max-width:540px">Работаем на основании государственной лицензии первой категории и&nbsp;допусков на&nbsp;проектную деятельность. Ниже представлены сканы документов.</p>
+      <div class="licgrid">
+        <div class="lic"><img src="./assets/licenses/license-1.jpg" alt="Государственная лицензия" /><div class="cap"><div class="tg">Лицензия · I категория</div><div class="t">Государственная лицензия</div><div class="n">Проектная деятельность · бессрочно</div></div></div>
+        <div class="lic"><img src="./assets/licenses/license-2.jpg" alt="Приложение к лицензии" /><div class="cap"><div class="tg">Приложение</div><div class="t">Перечень видов работ</div><div class="n">Приложение к лицензии</div></div></div>
+        <div class="lic"><img src="./assets/licenses/license-3.jpg" alt="Приложение к лицензии" /><div class="cap"><div class="tg">Приложение</div><div class="t">Перечень видов работ</div><div class="n">Приложение к лицензии</div></div></div>
+        <div class="lic"><img src="./assets/licenses/license-4.jpg" alt="Приложение к лицензии" /><div class="cap"><div class="tg">Приложение</div><div class="t">Перечень видов работ</div><div class="n">Приложение к лицензии</div></div></div>
+        <div class="lic"><img src="./assets/licenses/license-5.jpg" alt="Приложение — производственная база" /><div class="cap"><div class="tg">Приложение · I категория</div><div class="t">Производственная база</div><div class="n">Приложение № 001</div></div></div>
+        <div class="lic" style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:18px;background:#0e151d;color:#fff;border-color:#0e151d">
+          <div class="mono" style="font-size:9.5px;letter-spacing:.16em;color:#8ea2bb">ГАРАНТИЯ КАЧЕСТВА</div>
+          <div style="font-family:Lora,serif;font-size:21px;line-height:1.2;margin-top:10px;font-weight:600">Официально, по нормам, под ответственность</div>
+          <div style="font-size:11.5px;color:#9aa6b4;line-height:1.5;margin-top:10px">Каждый проект выполняется в правовом поле и соответствует требованиям действующих норм РК.</div>
+        </div>
+      </div>
+    </div>
+    <div class="brandfoot">СВОЙ ПРОЕКТ</div>
+    <div class="pagenum">09</div>
+  </section>
+
+  <!-- ============ BACK COVER / CONTACTS ============ -->
+  <section class="sheet back">
+    <div class="cover-img" style="background-image:url('./assets/renders/genplan-long.jpg');opacity:.16"></div>
+    <div class="pad">
+      <div class="back-top">
+        <img src="./assets/logo.png" alt="СВОЙ ПРОЕКТ" />
+        <div><div class="nm">ТОО «СВОЙ ПРОЕКТ»</div><div class="sb">Проектная компания</div></div>
+      </div>
+      <div style="margin-top:auto">
+        <div class="eyebrow" style="color:#5aa6e8">Свяжитесь с нами</div>
+        <h2 style="margin-top:12px">Обсудим ваш проект</h2>
+        <p class="lead2">Напишите нам — поможем подобрать оптимальное проектное решение, расскажем по срокам, этапам и согласованиям.</p>
+        <a class="wa" href="https://wa.me/77755557475" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          Написать в WhatsApp
+        </a>
+        <div class="cgrid">
+          <div class="cbox"><div class="k">Телефон</div><div class="v">+7 (775) 555-74-75</div></div>
+          <div class="cbox"><div class="k">E-mail</div><div class="v sm">make6265@gmail.com</div></div>
+          <div class="cbox"><div class="k">Адрес</div><div class="v sm">пр. Тәуелсіздік, 22А, Астана</div></div>
+          <div class="cbox"><div class="k">Режим работы</div><div class="v sm">Пн — Пт · 09:00 — 18:00</div></div>
+        </div>
+      </div>
+      <div class="signoff">© 2026 ТОО «СВОЙ ПРОЕКТ». Проектирование объектов под ключ.<br/>Эскиз · Рабочий проект · Генплан · Инженерные сети · Экспертиза · Согласование</div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
