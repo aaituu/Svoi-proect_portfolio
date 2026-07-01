@@ -201,6 +201,8 @@ img{display:block;max-width:100%}
 @media print{
   body{background:#fff}
   .toolbar,.dlbar,.no-print{display:none !important}
+  /* Chrome print renders blurred box-shadows as hard dark rectangles — drop them */
+  *{box-shadow:none !important}
   .deck{display:block}
   .slide{container-type:inline-size;width:297mm;height:210mm;overflow:hidden;
     page-break-after:always;break-after:page;page-break-inside:avoid}
